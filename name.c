@@ -1,8 +1,16 @@
 #include <stdio.h>
-
-int main() {
-    char last_name[15];
-    printf ("Enter your last name: ");
-    scanf ("%s", last_name);
-    printf("Entered last name is %s\n", last_name);
+#include <stdlib.h>
+ 
+void vulnerableFunction(char *input) { 
+    char buffer[8]; 
+    strcpy(buffer, input); 
+} 
+ 
+int main() { 
+    char userInput[16]; 
+    printf("Enter a string: "); 
+    scanf("%s", userInput); 
+    vulnerableFunction(userInput); 
+    printf("Execution continues after vulnerable function.\n"); 
+    return 0; 
 }
